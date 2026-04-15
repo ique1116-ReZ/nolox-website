@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nolox - 行云流水的 AI 待办</title>
+  <meta name="description" content="功能少即是护城河。极简 AI Todo App。">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <!-- Ambient background glow (Liquid effect) -->
+  <div class="ambient-glow"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar hidden-onload">
+    <div class="logo-text">N O L O X</div>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button id="lang-toggle" class="mono">EN</button>
+      </div>
+      <a href="#download" class="nav-btn"><span data-i18n="nav_get">获取应用</span> <span class="arrow">↗</span></a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <div class="hero-content">
+      <div class="sub-badge hidden-onload" data-i18n="new_flow"><span>NEW</span> AI 拆解流</div>
+      <!-- h1 inner HTML will be replaced directly since the split word spans are nested -->
+      <h1 class="hero-title" data-i18n="hero_title">
+        <span class="line"><span class="word">功能少，</span></span>
+        <span class="line"><span class="word">即是</span><span class="word highlight">护城河。</span></span>
+      </h1>
+      <p class="hero-subtitle hidden-onload" data-i18n="hero_sub">
+        摒弃子任务、标签与日历。<br>
+        一句话生成待办，剩下的全交给 AI。
+      </p>
+      
+      <!-- Interactive Input Mockup -->
+      <div class="mockup-container hidden-onload">
+        <div class="input-mockup glassy">
+          <div class="mockup-header">N O L O X</div>
+          <div class="mockup-body">
+            <div class="typing-text" data-i18n="mockup_task">车辆闲时自动洗车<span class="blinking-cursor"></span></div>
+          </div>
+          <div class="mockup-badges">
+            <div class="badge active" data-i18n="mockup_ai"><span class="badge-tag">AI</span> 事务</div>
+            <div class="badge" data-i18n="mockup_buy">购买</div>
+            <div class="badge" data-i18n="mockup_out">输出</div>
+            <div class="badge" data-i18n="mockup_keep">维护</div>
+          </div>
+          <div class="mockup-btn" data-i18n="mockup_confirm">确认记录</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Philosophy Section (Cream to Black Transition) -->
+  <section class="philosophy" id="philosophy">
+    <div class="sticky-container">
+      <div class="marquee-wrapper">
+        <div class="marquee">
+          NO SUBS NO TAGS NO CLUTTER — NO SUBS NO TAGS NO CLUTTER — NO SUBS NO TAGS NO CLUTTER — 
+        </div>
+      </div>
+      
+      <div class="philosophy-text-container">
+        <h2 class="reveal-text" data-i18n="phil_title">
+          <span class="block">当其他应用都在做加法时，</span>
+          <span class="block">我们在做减法。</span>
+        </h2>
+        <p class="reveal-paragraph" data-i18n="phil_p">极简不是不作为，而是对注意力的绝对保护。我们的 AI 三层分类机制，精准捕获你的每一刻灵感。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- iPhone Showcase Section -->
+  <section class="iphone-showcase" id="showcase">
+    <div class="showcase-sticky">
+      <!-- Fixed textual hints on the side -->
+      <div class="sc-texts">
+        <div class="sc-text sc-text-1" data-i18n="sc_text1">克制的视觉流<br>极简不仅是皮囊</div>
+        <div class="sc-text sc-text-2" data-i18n="sc_text2">1秒倾泻想法<br>AI 瞬时分类</div>
+        <div class="sc-text sc-text-3" data-i18n="sc_text3">庞然巨物<br>化整为零</div>
+      </div>
+
+      <!-- The Device -->
+      <div class="iphone-frame-wrapper">
+        <div class="iphone-frame">
+          <div class="iphone-notch"></div>
+          <div class="iphone-screen">
+            <div class="iphone-carousel">
+              <div class="iphone-slide"><img class="mock-img" src="1.png" alt="Board UI"></div>
+              <div class="iphone-slide"><img class="mock-img" src="2.png" alt="Empty Input UI"></div>
+              <div class="iphone-slide"><img class="mock-img" src="3.png" alt="AI Sort UI"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid (The Four Pillars) -->
+  <section class="pillars" id="pillars">
+    <div class="container">
+      <div class="section-heading">
+        <span class="mono-label" data-i18n="rule_label">--- 核心分类规则</span>
+        <h2 data-i18n="rule_title">化繁为四</h2>
+      </div>
+
+      <div class="card-grid">
+        <!-- BUY -->
+        <div class="pillar-card fade-up">
+          <div class="card-top">
+            <span class="category-name" data-i18n="cat_buy">购买</span>
+            <span class="count">2 ▲</span>
+          </div>
+          <div class="task-row">
+            <span class="cli-prefix">&gt;_</span> <span data-i18n="b_1">买牛奶</span>
+          </div>
+          <div class="task-row">
+            <span class="cli-prefix">&gt;_</span> <span data-i18n="b_2">下单耳机</span>
+          </div>
+          <div class="card-desc mono" data-i18n="b_desc">BUY / 消费型</div>
+        </div>
+
+        <!-- AFFAIR -->
+        <div class="pillar-card fade-up" style="transition-delay: 0.1s;">
+          <div class="card-top">
+            <span class="category-name" data-i18n="cat_affair">事务</span>
+            <span class="count">1 ▲</span>
+          </div>
+          <div class="task-row">
+            <span class="cli-prefix">&gt;_</span> <span data-i18n="a_1">缴电费</span>
+          </div>
+          <div class="task-row">
+            <span class="cli-prefix">&gt;_</span> <span data-i18n="a_2">办签证</span>
+          </div>
+          <div class="card-desc mono" data-i18n="a_desc">AFFAIR / 行政手续</div>
+        </div>
+
+        <!-- OUTPUT -->
+        <div class="pillar-card fade-up" style="transition-delay: 0.2s;">
+          <div class="card-top">
+            <span class="category-name" data-i18n="cat_out">输出</span>
+            <span class="count">2 ▲</span>
+          </div>
+          <div class="task-row">
+            <span class="cli-prefix">&gt;_</span> <span data-i18n="o_1">写周报</span>
+          </div>
+          <div class="task-row">
+            <span class="cli-prefix">&gt;_</span> <span data-i18n="o_2">剪视频</span>
+          </div>
+          <div class="card-desc mono" data-i18n="o_desc">OUTPUT / 工作创作</div>
+        </div>
+
+        <!-- KEEP -->
+        <div class="pillar-card fade-up" style="transition-delay: 0.3s;">
+          <div class="card-top">
+            <span class="category-name" data-i18n="cat_keep">维护</span>
+            <span class="count">3 ▲</span>
+          </div>
+          <div class="task-row">
+            <span class="cli-prefix">&gt;_</span> <span data-i18n="k_1">跑步 5km</span>
+          </div>
+          <div class="task-row">
+            <span class="cli-prefix">&gt;_</span> <span data-i18n="k_2">按时吃药</span>
+          </div>
+          <div class="card-desc mono" data-i18n="k_desc">KEEP / 健康日常</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Decompose Showcase -->
+  <section class="ai-decompose" id="decompose">
+    <div class="container visual-split">
+      <div class="split-left">
+        <span class="mono-label" data-i18n="deco_label">--- 任务拆解</span>
+        <h2 class="split-title fade-up" data-i18n="deco_title">从庞大的想法<br>到可执行的步骤</h2>
+        <p class="fade-up" style="transition-delay: 0.1s" data-i18n="deco_p">
+          结合预设专家场景，AI 一键帮你将「闲时自驾旅行」、「项目大纲」等宽泛想法，自动拆分为多日时间范围的小步待办。
+        </p>
+        <div class="cli-terminal fade-up" style="transition-delay: 0.2s">
+          <div class="terminal-header">
+            <span data-i18n="term_pre">Flowchart Preview...</span>
+          </div>
+          <div class="terminal-body mono">
+            [████████░░░░] 8/12 DONE<br>
+            <span data-i18n="term_1">> 正在生成子任务<br>> 匹配预设模型：项目管家</span>
+          </div>
+        </div>
+      </div>
+      <div class="split-right">
+        <!-- Decomposition visually based on screenshot -->
+        <div class="decompose-mockup fade-up">
+          <div class="deco-header" data-i18n="m_deco_hd">任务拆解</div>
+          
+          <div class="deco-group">
+            <div class="group-title mono" data-i18n="m_d_g1">─── 功能定义 ───</div>
+            <div class="deco-row"><span data-i18n="m_d_r1">✓ 确定需求</span> <span class="tag" data-i18n="m_d_t1">输出 ｜ 最近</span></div>
+            <div class="deco-row"><span data-i18n="m_d_r2">✓ 制定规范</span> <span class="tag" data-i18n="m_d_t2">输出 ｜ 最近</span></div>
+          </div>
+          
+          <div class="deco-group">
+            <div class="group-title mono" data-i18n="m_d_g2">─── 技术实现 ───</div>
+            <div class="deco-row"><span data-i18n="m_d_r3">✓ 选择定位系统</span> <span class="tag dark" data-i18n="m_d_t3">购买 ｜ 本周</span></div>
+            <div class="deco-row"><span data-i18n="m_d_r4">✓ 开发导航算法</span> <span class="tag" data-i18n="m_d_t4">输出 ｜ 本周</span></div>
+          </div>
+          
+          <div class="deco-btn" data-i18n="m_d_btn">确认 · 智能派出 (15/15)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Footer -->
+  <footer class="footer" id="download">
+    <div class="container text-center">
+      <h2 class="cta-title" data-i18n="cta_title">准备好做减法了吗？</h2>
+      <p class="cta-sub mono" data-i18n="cta_sub">¥12 Buy Once. Yours Forever.</p>
+      <button class="buy-btn">
+        <span data-i18n="cta_btn">在 App Store 获取</span>
+      </button>
+
+      <div class="footer-links mono">
+        <a href="#" data-i18n="link_1">支持</a>
+        <a href="#" data-i18n="link_2">隐私协议</a>
+        <a href="#">X (Twitter)</a>
+      </div>
+      <p class="copyright mono" data-i18n="copy">© 2026 Nolox. iOS 26+ 建议体验.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
